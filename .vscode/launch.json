@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "monkeyc",
+            "request": "launch",
+            "name": "Run App (fr970)",
+            "stopAtLaunch": false,
+            "device": "fr970"
+        },
+        {
+            "type": "monkeyc",
+            "request": "launch",
+            "name": "Run App (vivoactive4s – no barometer)",
+            "stopAtLaunch": false,
+            "device": "vivoactive4s"
+        },
+        {
+            "type": "monkeyc",
+            "request": "launch",
+            "name": "Run App (choose device)",
+            "stopAtLaunch": false,
+            "device": "${command:GetTargetDevice}"
+        }
+    ]
+}

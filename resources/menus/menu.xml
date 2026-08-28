@@ -1,0 +1,5 @@
+<menu id="MainMenu" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
+    <menu-item id="item_lap" label="@Strings.menu_lap" />
+    <menu-item id="item_save" label="@Strings.menu_save" />
+    <menu-item id="item_discard" label="@Strings.menu_discard" />
+</menu>

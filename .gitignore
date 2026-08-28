@@ -1,0 +1,10 @@
+# Connect IQ build output
+bin/
+
+# Private signing key — never commit, losing/leaking it breaks app updates
+developer_key.der
+developer_key.pem
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
