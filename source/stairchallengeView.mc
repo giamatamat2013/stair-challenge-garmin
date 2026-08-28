@@ -35,6 +35,19 @@ class stairchallengeView extends WatchUi.View {
         dc.drawText(width / 2, y, Graphics.FONT_NUMBER_MEDIUM, formatElapsed(info), Graphics.TEXT_JUSTIFY_CENTER);
         y += lineHeight * 1.6;
 
+        y = drawMetrics(dc, width, y, lineHeight, info);
+
+        var calText = "Cal --";
+        if (info != null && info.calories != null) {
+            calText = "Cal " + info.calories;
+        }
+        dc.drawText(width / 2, y, Graphics.FONT_SMALL, calText + "   Laps " + app.lapCount, Graphics.TEXT_JUSTIFY_CENTER);
+    }
+
+    // Devices with a barometer (or a GPS altitude fallback): HR row, then a
+    // floors up/down row built from totalAscent/totalDescent.
+    (:altimeter)
+    function drawMetrics(dc as Dc, width as Number, y as Float, lineHeight as Float, info as Activity.Info?) as Float {
         var hrText = "HR --";
         if (info != null && info.currentHeartRate != null) {
             hrText = "HR " + info.currentHeartRate.format("%d");
@@ -56,12 +69,22 @@ class stairchallengeView extends WatchUi.View {
             dc.drawText(width / 2, y, Graphics.FONT_SMALL, "Up " + up + "  Down " + down, Graphics.TEXT_JUSTIFY_CENTER);
             y += lineHeight;
         }
+        return y;
+    }
 
-        var calText = "Cal --";
-        if (info != null && info.calories != null) {
-            calText = "Cal " + info.calories;
+    // fr55 has no barometric altimeter: no floors up/down row at all. HR
+    // moves down into the row that would otherwise hold it, leaving its
+    // usual row blank instead of showing stale/fake altitude data.
+    (:noAltimeter)
+    function drawMetrics(dc as Dc, width as Number, y as Float, lineHeight as Float, info as Activity.Info?) as Float {
+        y += lineHeight;
+        var hrText = "HR --";
+        if (info != null && info.currentHeartRate != null) {
+            hrText = "HR " + info.currentHeartRate.format("%d");
         }
-        dc.drawText(width / 2, y, Graphics.FONT_SMALL, calText + "   Laps " + app.lapCount, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(width / 2, y, Graphics.FONT_MEDIUM, hrText, Graphics.TEXT_JUSTIFY_CENTER);
+        y += lineHeight;
+        return y;
     }
 
     function statusText(state as Symbol) as String {

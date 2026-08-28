@@ -6,21 +6,32 @@
             "request": "launch",
             "name": "Run App (fr970)",
             "stopAtLaunch": false,
-            "device": "fr970"
+            "device": "fr970",
+            "preLaunchTask": "Start Connect IQ Simulator"
         },
         {
             "type": "monkeyc",
             "request": "launch",
-            "name": "Run App (vivoactive4s – no barometer)",
+            "name": "Run App (fr55 – no barometer)",
             "stopAtLaunch": false,
-            "device": "vivoactive4s"
+            "device": "fr55",
+            "preLaunchTask": "Start Connect IQ Simulator"
+        },
+        {
+            "type": "monkeyc",
+            "request": "launch",
+            "name": "Run App (vivoactive4s)",
+            "stopAtLaunch": false,
+            "device": "vivoactive4s",
+            "preLaunchTask": "Start Connect IQ Simulator"
         },
         {
             "type": "monkeyc",
             "request": "launch",
             "name": "Run App (choose device)",
             "stopAtLaunch": false,
-            "device": "${command:GetTargetDevice}"
+            "device": "${command:GetTargetDevice}",
+            "preLaunchTask": "Start Connect IQ Simulator"
         }
     ]
 }

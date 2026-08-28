@@ -1,1 +1,6 @@
 project.manifest = manifest.xml
+
+# fr55 has no barometric altimeter: build its view without the floors
+# up/down readout (see stairchallengeView.mc drawMetrics variants).
+base.excludeAnnotations = noAltimeter
+fr55.excludeAnnotations = altimeter
