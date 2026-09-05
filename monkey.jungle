@@ -1,6 +1,8 @@
 project.manifest = manifest.xml
 
-# fr55 has no barometric altimeter: build its view without the floors
-# up/down readout (see stairchallengeView.mc drawMetrics variants).
+# These devices have no barometric altimeter: build their view without the
+# floors up/down readout (see stairchallengeView.mc drawMetrics variants).
+noBarometerDevices = fr55;fr245;fr245m;venusq;venusqm;venusq2;venusq2m;approachs50;vivoactive5;vivoactive6
+
 base.excludeAnnotations = noAltimeter
-fr55.excludeAnnotations = altimeter
+$(noBarometerDevices).excludeAnnotations = altimeter

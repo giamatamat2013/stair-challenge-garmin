@@ -26,7 +26,14 @@ activity that syncs to Garmin Connect like any built-in activity.
 
 ## Supported devices
 
-fr55, fr57042mm, fr57047mm, fr970, vivoactive4s (see `manifest.xml`).
+Every current Garmin watch capable of `SPORT_FITNESS_EQUIPMENT` /
+`SUB_SPORT_STAIR_CLIMBING` activity recording, i.e. API Level 3.2.0+
+(fēnix, Forerunner, vívoactive, Venu, Instinct, Descent, MARQ, D2, epix,
+Approach S-series watches — see the full list in `manifest.xml`). Bike
+computers (Edge) and handhelds (GPSMAP, Montana, eTrex) are excluded even
+though some meet the API level, since they aren't watches. Devices without a
+barometric altimeter (Forerunner 55/245, Venu Sq/Sq 2, Approach S50,
+vívoactive 5/6) compile out the floors up/down row — see `monkey.jungle`.
 
 ## Development
 
